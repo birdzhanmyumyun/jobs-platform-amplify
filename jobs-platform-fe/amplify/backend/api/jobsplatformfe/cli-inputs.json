@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "jobsplatformfe",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\birdz\\source\\repos\\birdzhanmyumyun\\jobs-platform-amplify\\jobs-platform-fe\\amplify\\backend\\api\\jobsplatformfe\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
