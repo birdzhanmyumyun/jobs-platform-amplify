@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import awsconfig from './aws-exports';
 import './App.css';
+
+Amplify.configure(awsconfig);
 
 function App() {
   return (
