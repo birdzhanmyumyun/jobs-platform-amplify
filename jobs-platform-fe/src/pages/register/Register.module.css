@@ -1,0 +1,50 @@
+.form {
+ max-width: 30rem;  
+ flex-grow: 1;
+}
+
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .formLabel {
+    margin-bottom: 0.25rem;
+  }
+
+  .formField {
+    padding: 0.5rem; 
+  }
+
+  .formFieldError {
+    padding: 0.5rem;
+    border: 1px solid #e11d48;
+  }
+
+  .formFieldErrorMessage {
+    display: inline-block;
+    margin: 0.25rem 0 0 0;
+    color: #e11d48;
+  }
+
+  .formActions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .formSubmitBtn {
+    display: inline-block;
+    padding: 0.5rem 0.7rem;
+    text-align: center;
+    min-width: 5rem;
+    background-color: #6068ff;
+    color: #fff;
+    border-color: #6068ff;
+    border-width: 2px;
+    text-transform: uppercase;
+    border-radius: .25rem;
+    text-decoration: none;
+    cursor: pointer;
+  }

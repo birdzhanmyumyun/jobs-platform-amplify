@@ -1,29 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import { Amplify, API, graphqlOperation, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { Register } from './pages/register/Register';
 import './App.css';
+
+import { signUp, UserSignUpDto } from './services/AuthService';
 
 Amplify.configure(awsconfig);
 
 function App() {
+  const user: UserSignUpDto = { username: 'birdzhanmyumyun@gmail.com', password: 'asdfghjkl' }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className="contentPage">
+        <Register />
+      </div>
+     
+
   );
 }
 

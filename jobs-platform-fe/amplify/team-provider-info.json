@@ -10,6 +10,11 @@
       "StackName": "amplify-jobsplatformfe-dev-232903",
       "StackId": "arn:aws:cloudformation:eu-central-1:004888409974:stack/amplify-jobsplatformfe-dev-232903/2ff91410-e83b-11ec-9ca6-06ad9f13aace",
       "AmplifyAppId": "d2i3pwqtl8xk6m"
+    },
+    "categories": {
+      "auth": {
+        "jobsplatformfea5414ae6": {}
+      }
     }
   }
 }
