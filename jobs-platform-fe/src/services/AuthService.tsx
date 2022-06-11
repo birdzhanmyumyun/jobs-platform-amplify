@@ -12,8 +12,8 @@ export async function signUp({username, password}: UserSignUpDto) {
             username,
             password,
         });
-        console.log(user);
+        console.log(user)
     } catch (error) {
-        console.log('error signing up:', error);
+        console.log(error)
     }
 }

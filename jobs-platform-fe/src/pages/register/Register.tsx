@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { signUp, UserSignUpDto } from '../../services/AuthService';
-import { useLoginFormValidator, FormState } from "./hooks/useLoginFormValidator";
+import { signUp } from '../../services/AuthService';
+import { useSignUpFormValidator, FormState } from "./hooks/useSignUpFormValidator";
 import styles from './Register.module.css';
 
 export interface SignUpForm {
@@ -17,7 +17,7 @@ export function Register() {
         confirmPassword: "",
     });
 
-    const { onBlurField, validateForm, errors } = useLoginFormValidator(form);
+    const { onBlurField, validateForm, errors } = useSignUpFormValidator(form);
 
     const onUpdateField = (e: React.ChangeEvent<HTMLInputElement>) => {
         const field = e.target.name as keyof FormState;
@@ -25,24 +25,26 @@ export function Register() {
             ...form,
             [field]: e.target.value,
         };
-        console.log(e.target.value)
         setForm(nextFormState);
-        console.log(nextFormState)
         if (errors[field].dirty)
-          validateForm({
-            form: nextFormState,
-            errors,
-            field,
-          });
+            validateForm({
+                form: nextFormState,
+                errors,
+                field,
+            });
     };
 
     const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
-        // if (!isValid) return;
-        signUp({ username: form.email, password: form.password })
-        alert(JSON.stringify(form, null, 2));
-        validateForm({ form, errors });
+
+        validateForm({ form, errors, forceTouchErrors: true });
+
+        const { isValid } = validateForm({ form, errors});
+
+        if (isValid) {
+            signUp({ username: form.email, password: form.password })
+        };
+
     };
 
 
@@ -65,7 +67,7 @@ export function Register() {
         <div className={styles.formGroup}>
             <label className={styles.formLabel}>Password</label>
             <input
-                 className={(errors.password.dirty && errors.password.error) ? styles.formFieldError : styles.formField}
+                className={(errors.password.dirty && errors.password.error) ? styles.formFieldError : styles.formField}
                 type="password"
                 aria-label="Password field"
                 name="password"
