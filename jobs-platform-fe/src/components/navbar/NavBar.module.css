@@ -1,0 +1,17 @@
+.navBar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 2rem;
+    max-height: 3rem;
+    align-self: stretch;
+    /* max-width: 800px; */
+    min-width: 400px;
+  }
+  .navBarItem {
+    margin: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: #6068ff;
+    align-content: center;
+  }

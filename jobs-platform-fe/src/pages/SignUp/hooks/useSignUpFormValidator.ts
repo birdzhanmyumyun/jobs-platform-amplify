@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SignUpForm } from '../SignUp'
+import { SignUpForm } from '../SignUpPage'
 import { emailValidator, passwordValidator, passwordConfirmationValidator } from '../../../utils/validators';
 
 export interface FormState {

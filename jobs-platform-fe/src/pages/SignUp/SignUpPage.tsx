@@ -9,7 +9,7 @@ export interface SignUpForm {
     confirmPassword: string
 }
 
-export function SignUp() {
+export function SignUpPage() {
 
     const [form, setForm] = useState<SignUpForm>({
         email: "",
