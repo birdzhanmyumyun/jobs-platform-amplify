@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import { Amplify, API, graphqlOperation, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import { Register } from './pages/register/Register';
+import { SignUp } from './pages/SignUp/SignUp';
 import './App.css';
 
 import { signUp, UserSignUpDto } from './services/AuthService';
@@ -15,7 +15,7 @@ function App() {
   return (
 
       <div className="contentPage">
-        <Register />
+        <SignUp />
       </div>
      
 

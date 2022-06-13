@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signUp } from '../../services/AuthService';
 import { useSignUpFormValidator, FormState } from "./hooks/useSignUpFormValidator";
-import styles from './Register.module.css';
+import styles from './SignUp.module.css';
 
 export interface SignUpForm {
     email: string
@@ -9,7 +9,7 @@ export interface SignUpForm {
     confirmPassword: string
 }
 
-export function Register() {
+export function SignUp() {
 
     const [form, setForm] = useState<SignUpForm>({
         email: "",
