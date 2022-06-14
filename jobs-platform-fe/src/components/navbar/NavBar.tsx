@@ -15,6 +15,11 @@ export function NavBar() {
                     Sign up
                 </Link>
             </div>
+            <div>
+                <Link className={styles.navBarItem} to="/signin">
+                    Sign in
+                </Link>
+            </div>
         </div>
     )
 

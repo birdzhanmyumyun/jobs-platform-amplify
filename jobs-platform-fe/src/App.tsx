@@ -6,13 +6,9 @@ import { SignUpPage } from './pages/SignUp/SignUpPage';
 import { AppRoutes } from './routes/AppRoutes';
 import './App.css';
 
-
-import { signUp, UserSignUpDto } from './services/AuthService';
-
 Amplify.configure(awsconfig);
 
 function App() {
-  const user: UserSignUpDto = { username: 'birdzhanmyumyun@gmail.com', password: 'asdfghjkl' }
 
   return (
 

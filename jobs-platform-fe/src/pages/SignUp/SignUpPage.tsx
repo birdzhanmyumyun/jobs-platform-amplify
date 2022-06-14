@@ -42,7 +42,7 @@ export function SignUpPage() {
         const { isValid } = validateForm({ form, errors});
 
         if (isValid) {
-            signUp({ username: form.email, password: form.password })
+            signUp({ email: form.email, password: form.password })
         };
 
     };
