@@ -1,32 +1,23 @@
 import React, { useState } from 'react';
 import { signIn } from '../../services/AuthService';
-import styles from './SignIn.module.css';
 import { emailValidator } from '../../utils/validators';
-import { FormState } from '../SignUp/hooks/useSignUpFormValidator';
 import { useNavigate } from 'react-router-dom';
 import { Input } from '../../components/input/Input'
+import { useFormValidator, FormState, Form } from "../../hooks/useFormValidator";
 
-interface SignInForm {
-    email: string
-    password: string
-}
-
-interface FormErrors {
-    emailError: string
-    signInError: string
-}
+import styles from './SignIn.module.css';
 
 export function SignInPage() {
 
-    const [form, setForm] = useState<SignInForm>({
-        email: '',
-        password: ''
-    })
+    const [form, setForm] = useState<Form>({email: '', password: ''})
 
-    const [formErrors, setFormErrors] = useState<FormErrors>({
-        emailError: '',
-        signInError: ''
-    });
+    const [signInError, setSignInError] = useState<string>('')
+
+    // const [formErrors, setFormErrors] = useState<FormErrors>({
+    //     emailError: '',
+    //     signInError: ''
+    // });
+    const { onBlurField, validateForm, errors } = useFormValidator(form);
 
     const nav = useNavigate();
 
@@ -39,48 +30,55 @@ export function SignInPage() {
             [field]: value
         }
         setForm(nextFormState)
+        if (errors[field]?.dirty)
+            validateForm({
+                form: nextFormState,
+                errors,
+                field,
+            });
     }
 
     const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const emailError = emailValidator(form.email)
 
-        setFormErrors({
-            ...formErrors,
-            emailError
-        })
+        validateForm({ form, errors });
 
-        if (!emailError) {
-            const { user, error } = await signIn(form);
+        const { isValid } = validateForm({ form, errors });
+        console.log(isValid)
+        console.log(errors)
 
-            error && setFormErrors({ emailError, signInError: error.toString() })
+        if (isValid) {
+            const { user, error } = await signIn({email: form.email || '', password: form.password || ''});
+
+            error && setSignInError(error.toString())
             user && nav("/")
         }
-
-
     }
+
     return (
         <form className={styles.form} onSubmit={onSubmitForm}>
             <Input
                 label='Email'
-                value={form.email}
+                value={form.email || ''}
                 name='email'
                 type='text'
                 ariaLabel='Email field'
                 onChange={onUpdateField}
-                hasError={formErrors.emailError ? true : false}
-                errorMessage={formErrors.emailError}
+                hasError={errors.email?.error ? true : false}
+                errorMessage={errors.email?.message}
+                isDirty={errors.email?.dirty}
+                onBlur={onBlurField}
             />
             <Input
                 label='Password'
-                value={form.password}
+                value={form.password || ''}
                 name='password'
                 type='password'
                 ariaLabel='Password field'
                 onChange={onUpdateField}
             />
-            {formErrors.signInError ? (
-                <p className={styles.formFieldErrorMessage}>{formErrors.signInError}</p>
+            {signInError ? (
+                <p className={styles.formFieldErrorMessage}>{signInError}</p>
             ) : null}
             <div className={styles.formActions}>
                 <button className={styles.formSubmitBtn} type="submit">
