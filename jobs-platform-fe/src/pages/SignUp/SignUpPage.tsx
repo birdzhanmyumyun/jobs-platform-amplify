@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../services/AuthService';
 import { useFormValidator, FormState, Form } from "../../hooks/useFormValidator";
 import { Input } from '../../components/input/Input';
+import { Button } from '../../components/button/Button';
 
 import styles from './SignUp.module.css';
 
@@ -43,7 +44,7 @@ export function SignUpPage() {
         const { isValid } = validateForm({ form, errors });
 
         if (isValid) {
-            const {error, user} = await signUp({ email: form.email || '', password: form.password || '' })
+            const { error, user } = await signUp({ email: form.email || '', password: form.password || '' })
 
             error && setSignUpError(error.toString().substring(error.toString().indexOf(':') + 1))
             user && nav("/")
@@ -95,9 +96,12 @@ export function SignUpPage() {
                 <p className={styles.formFieldErrorMessage}>{signUpError}</p>
             ) : null}
             <div className={styles.formActions}>
-                <button className={styles.formSubmitBtn} type="submit">
-                    Sing up
-                </button>
+                <Button
+                    type='submit'
+                    style='primary'
+                >
+                    Sign up
+                </Button>
             </div>
         </form>
     )

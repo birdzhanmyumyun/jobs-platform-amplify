@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { signIn } from '../../services/AuthService';
-import { emailValidator } from '../../utils/validators';
 import { useNavigate } from 'react-router-dom';
 import { Input } from '../../components/input/Input'
+import { Button } from '../../components/button/Button'
 import { useFormValidator, FormState, Form } from "../../hooks/useFormValidator";
 
 import styles from './SignIn.module.css';
 
 export function SignInPage() {
 
-    const [form, setForm] = useState<Form>({email: '', password: ''})
+    const [form, setForm] = useState<Form>({ email: '', password: '' })
 
     const [signInError, setSignInError] = useState<string>('')
 
@@ -44,7 +44,7 @@ export function SignInPage() {
         console.log(errors)
 
         if (isValid) {
-            const { user, error } = await signIn({email: form.email || '', password: form.password || ''});
+            const { user, error } = await signIn({ email: form.email || '', password: form.password || '' });
 
             error && setSignInError(error.toString().substring(error.toString().indexOf(':') + 1));
             user && nav("/")
@@ -77,9 +77,12 @@ export function SignInPage() {
                 <p className={styles.formFieldErrorMessage}>{signInError}</p>
             ) : null}
             <div className={styles.formActions}>
-                <button className={styles.formSubmitBtn} type="submit">
-                    Sing in
-                </button>
+                <Button
+                    type='submit'
+                    style='primary'
+                >
+                    Sign in
+                </Button>
             </div>
         </form>
     )
