@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { signUp } from '../../services/AuthService';
 import { useSignUpFormValidator, FormState } from "./hooks/useSignUpFormValidator";
+import { Input } from '../../components/input/Input';
+
 import styles from './SignUp.module.css';
+
 
 export interface SignUpForm {
     email: string
@@ -39,7 +42,7 @@ export function SignUpPage() {
 
         validateForm({ form, errors, forceTouchErrors: true });
 
-        const { isValid } = validateForm({ form, errors});
+        const { isValid } = validateForm({ form, errors });
 
         if (isValid) {
             signUp({ email: form.email, password: form.password })
@@ -48,58 +51,50 @@ export function SignUpPage() {
     };
 
 
-    return <form className={styles.form} onSubmit={onSubmitForm}>
-        <div className={styles.formGroup}>
-            <label className={styles.formLabel}>Email</label>
-            <input
-                className={(errors.email.dirty && errors.email.error) ? styles.formFieldError : styles.formField}
-                type="text"
-                aria-label="Email field"
-                name="email"
+    return (
+        <form className={styles.form} onSubmit={onSubmitForm}>
+            <Input
+                type='text'
+                ariaLabel='Email field'
+                label='Email'
                 value={form.email}
+                name={'email'}
                 onChange={onUpdateField}
                 onBlur={onBlurField}
+                isDirty={errors.email.dirty}
+                hasError={errors.email.error}
+                errorMessage={errors.email.message}
             />
-            {errors.email.dirty && errors.email.error ? (
-                <p className={styles.formFieldErrorMessage}>{errors.email.message}</p>
-            ) : null}
-        </div>
-        <div className={styles.formGroup}>
-            <label className={styles.formLabel}>Password</label>
-            <input
-                className={(errors.password.dirty && errors.password.error) ? styles.formFieldError : styles.formField}
-                type="password"
-                aria-label="Password field"
-                name="password"
+            <Input
+                label='Password'
                 value={form.password}
+                name='password'
+                type='password'
+                ariaLabel='Password field'
                 onChange={onUpdateField}
                 onBlur={onBlurField}
+                isDirty={errors.password.dirty}
+                hasError={errors.password.error}
+                errorMessage={errors.password.message}
             />
-            {errors.password.dirty && errors.password.error ? (
-                <p className={styles.formFieldErrorMessage}>{errors.password.message}</p>
-            ) : null}
-        </div>
-        <div className={styles.formGroup}>
-            <label className={styles.formLabel}>Confirm Password</label>
-            <input
-                className={(errors.confirmPassword.dirty && errors.confirmPassword.error) ? styles.formFieldError : styles.formField}
-                type="password"
-                aria-label="Confirm password field"
-                name="confirmPassword"
+            <Input
+                label='Confirm password'
                 value={form.confirmPassword}
+                name='confirmPassword'
+                type='password'
+                ariaLabel='Confirm password field'
                 onChange={onUpdateField}
                 onBlur={onBlurField}
-
+                isDirty={errors.confirmPassword.dirty}
+                hasError={errors.confirmPassword.error}
+                errorMessage={errors.confirmPassword.message}
             />
-            {errors.confirmPassword.dirty && errors.confirmPassword.error ? (
-                <p className={styles.formFieldErrorMessage}>{errors.confirmPassword.message}</p>
-            ) : null}
-        </div>
-        <div className={styles.formActions}>
-            <button className={styles.formSubmitBtn} type="submit">
-                Sing up
-            </button>
-        </div>
-    </form>
+            <div className={styles.formActions}>
+                <button className={styles.formSubmitBtn} type="submit">
+                    Sing up
+                </button>
+            </div>
+        </form>
+    )
 }
 

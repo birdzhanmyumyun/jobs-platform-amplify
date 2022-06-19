@@ -4,6 +4,7 @@ import styles from './SignIn.module.css';
 import { emailValidator } from '../../utils/validators';
 import { FormState } from '../SignUp/hooks/useSignUpFormValidator';
 import { useNavigate } from 'react-router-dom';
+import { Input } from '../../components/input/Input'
 
 interface SignInForm {
     email: string
@@ -60,32 +61,24 @@ export function SignInPage() {
     }
     return (
         <form className={styles.form} onSubmit={onSubmitForm}>
-            <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Email</label>
-                <input
-                    className={formErrors.emailError ? styles.formFieldError : styles.formField}
-                    type="text"
-                    aria-label="Email field"
-                    name="email"
-                    value={form.email}
-                    onChange={onUpdateField}
-                // onBlur={onBlurField}
-                />
-                {formErrors.emailError ? (
-                    <p className={styles.formFieldErrorMessage}>{formErrors.emailError}</p>
-                ) : null}
-            </div>
-            <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Password</label>
-                <input
-                    className={styles.formField}
-                    type="password"
-                    aria-label="Password field"
-                    name="password"
-                    value={form.password}
-                    onChange={onUpdateField}
-                />
-            </div>
+            <Input
+                label='Email'
+                value={form.email}
+                name='email'
+                type='text'
+                ariaLabel='Email field'
+                onChange={onUpdateField}
+                hasError={formErrors.emailError ? true : false}
+                errorMessage={formErrors.emailError}
+            />
+            <Input
+                label='Password'
+                value={form.password}
+                name='password'
+                type='password'
+                ariaLabel='Password field'
+                onChange={onUpdateField}
+            />
             {formErrors.signInError ? (
                 <p className={styles.formFieldErrorMessage}>{formErrors.signInError}</p>
             ) : null}
