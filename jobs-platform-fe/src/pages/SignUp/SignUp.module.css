@@ -6,6 +6,12 @@
   justify-content: center;
 }
 
+.formFieldErrorMessage {
+  display: inline-block;
+  margin: 0.25rem 0 0 0;
+  color: #e11d48;
+}
+
 .formActions {
   display: flex;
   justify-content: flex-end;

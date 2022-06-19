@@ -13,10 +13,6 @@ export function SignInPage() {
 
     const [signInError, setSignInError] = useState<string>('')
 
-    // const [formErrors, setFormErrors] = useState<FormErrors>({
-    //     emailError: '',
-    //     signInError: ''
-    // });
     const { onBlurField, validateForm, errors } = useFormValidator(form);
 
     const nav = useNavigate();
@@ -50,7 +46,7 @@ export function SignInPage() {
         if (isValid) {
             const { user, error } = await signIn({email: form.email || '', password: form.password || ''});
 
-            error && setSignInError(error.toString())
+            error && setSignInError(error.toString().substring(error.toString().indexOf(':') + 1));
             user && nav("/")
         }
     }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../services/AuthService';
 import { useFormValidator, FormState, Form } from "../../hooks/useFormValidator";
 import { Input } from '../../components/input/Input';
@@ -13,7 +14,11 @@ export function SignUpPage() {
         confirmPassword: "",
     });
 
+    const [signUpError, setSignUpError] = useState<string>('')
+
     const { onBlurField, validateForm, errors } = useFormValidator(form);
+
+    const nav = useNavigate();
 
     const onUpdateField = (e: React.ChangeEvent<HTMLInputElement>) => {
         const field = e.target.name as keyof FormState;
@@ -30,7 +35,7 @@ export function SignUpPage() {
             });
     };
 
-    const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         validateForm({ form, errors });
@@ -38,7 +43,11 @@ export function SignUpPage() {
         const { isValid } = validateForm({ form, errors });
 
         if (isValid) {
-            signUp({ email: form.email || '', password: form.password || '' })
+            const {error, user} = await signUp({ email: form.email || '', password: form.password || '' })
+
+            error && setSignUpError(error.toString().substring(error.toString().indexOf(':') + 1))
+            user && nav("/")
+
         };
 
     };
@@ -82,6 +91,9 @@ export function SignUpPage() {
                 hasError={errors.confirmPassword?.error}
                 errorMessage={errors.confirmPassword?.message}
             />
+            {signUpError ? (
+                <p className={styles.formFieldErrorMessage}>{signUpError}</p>
+            ) : null}
             <div className={styles.formActions}>
                 <button className={styles.formSubmitBtn} type="submit">
                     Sing up
