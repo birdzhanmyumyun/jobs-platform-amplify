@@ -16,20 +16,3 @@
   display: flex;
   justify-content: flex-end;
 }
-
-.formSubmitBtn {
-  display: inline-block;
-  padding: 0.5rem 0.7rem;
-  text-align: center;
-  min-width: 5rem;
-  background-color: #6068ff;
-  color: #fff;
-  border-color: #6068ff;
-  border-width: 2px;
-  text-transform: uppercase;
-  border-radius: .25rem;
-  text-decoration: none;
-  cursor: pointer;
-  min-width: 320px;
-  margin: 1rem;
-}
