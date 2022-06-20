@@ -10,15 +10,17 @@ export function NavBar() {
                     Jobs Platform
                 </Link>
             </div>
-            <div>
-                <Link className={styles.navBarItem} to="/signup">
-                    Sign up
-                </Link>
-            </div>
-            <div>
-                <Link className={styles.navBarItem} to="/signin">
-                    Sign in
-                </Link>
+            <div className={styles.navBarRight}>
+                <div>
+                    <Link className={styles.navBarItem} to="/signup">
+                        Sign up
+                    </Link>
+                </div>
+                <div>
+                    <Link className={styles.navBarItem} to="/signin">
+                        Sign in
+                    </Link>
+                </div>
             </div>
         </div>
     )

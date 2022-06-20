@@ -5,7 +5,6 @@
     padding: 2rem;
     max-height: 3rem;
     align-self: stretch;
-    /* max-width: 800px; */
     min-width: 400px;
   }
   .navBarItem {
@@ -14,4 +13,9 @@
     font-weight: 500;
     color: #6068ff;
     align-content: center;
+  }
+
+  .navBarRight {
+    display: flex;
+    justify-content: flex-end;
   }
