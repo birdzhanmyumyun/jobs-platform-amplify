@@ -15,8 +15,8 @@ type WorkExperience {
   userId: ID!
   user: User @belongsTo
   title: String!
-  startDate: Date!
-  endDate: Date
+  startDate: AWSDate!
+  endDate: AWSDate
   employer: String!
   description: String
 }
@@ -25,8 +25,8 @@ type Education {
   educationId: ID!
   userId: ID!
   user: User @belongsTo
-  startDate: Date!
-  endDate: Date
+  startDate: AWSDate!
+  endDate: AWSDate
   institution: String!
   degree: String!
 }
