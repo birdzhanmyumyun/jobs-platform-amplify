@@ -40,12 +40,13 @@ export function SignInPage() {
         validateForm({ form, errors });
 
         const { isValid } = validateForm({ form, errors });
-        console.log(isValid)
-        console.log(errors)
+
 
         if (isValid) {
             const { user, error } = await signIn({ email: form.email || '', password: form.password || '' });
-
+            console.log('email: ', form.email)
+            console.log('password: ', form.password)
+            console.log('user: ', user)
             error && setSignInError(error.toString().substring(error.toString().indexOf(':') + 1));
             user && nav("/")
         }

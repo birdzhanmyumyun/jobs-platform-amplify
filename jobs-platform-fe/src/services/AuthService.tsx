@@ -1,4 +1,5 @@
 import { Auth } from 'aws-amplify';
+import { setCurrentUser } from './UserService';
 
 
 
@@ -18,9 +19,9 @@ export async function signUp({ email, password }: UserCredentialsDto): Promise<S
             username: email,
             password,
         });
+        
         return { user }
     } catch (error) {
-        console.log(error)
         return { error }
     }
 }
@@ -28,11 +29,14 @@ export async function signUp({ email, password }: UserCredentialsDto): Promise<S
 export async function signIn({ email, password }: UserCredentialsDto): Promise<SignInResponse> {
 
     try {
-        const { user } = await Auth.signIn(email, password);
-
-        return user
+        const user  = await Auth.signIn(email, password);
+        setCurrentUser(user)
+        return {user}
     } catch (error) {
-        console.log('error signing in', error);
         return { error }
     }
+}
+
+export function signOut() {
+    window.localStorage.clear();
 }

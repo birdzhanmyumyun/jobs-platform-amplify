@@ -5,6 +5,7 @@ interface ButtonProps {
     style: ButtonStyles
     children?: React.ReactNode
     type?: HTMLButtonTypes
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 type ButtonStyles = 'primary' | 'outlined'
@@ -12,11 +13,12 @@ type ButtonStyles = 'primary' | 'outlined'
 type HTMLButtonTypes = 'button' | 'submit' | 'reset'
 
 export function Button(props: ButtonProps) {
-    const {style, type, children} = props;
+    const {style, type, children, onClick} = props;
     return (
         <button 
             className={styles[style]}
             type={type}
+            onClick={onClick}
         >
             {children}
         </button>
