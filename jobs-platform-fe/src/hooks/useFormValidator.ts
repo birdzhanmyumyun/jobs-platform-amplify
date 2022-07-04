@@ -40,7 +40,7 @@ export const useFormValidator = (form: Form) => {
     const validateForm = ({ form, errors, field  }: ValidateFormParams) => {
         let isValid = true;
 
-        let nextErrors = JSON.parse(JSON.stringify(errors)) as FormState;
+        const nextErrors = JSON.parse(JSON.stringify(errors)) as FormState;
 
         const { email, password, confirmPassword } = form;
 
