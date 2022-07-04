@@ -8,9 +8,11 @@ type User @model {
   lastName: String!
   company: ID
   workExperiences: [WorkExperience] @hasMany
+  educations: [Education] @hasMany
+
 }
 
-type WorkExperience {
+type WorkExperience @model {
   experienceId: ID!
   userId: ID!
   user: User @belongsTo
@@ -21,7 +23,7 @@ type WorkExperience {
   description: String
 }
 
-type Education {
+type Education @model {
   educationId: ID!
   userId: ID!
   user: User @belongsTo

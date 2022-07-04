@@ -18,7 +18,7 @@ export function AppRoutes() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signout" element={<SignOutPage />} />
-        <Route path="user" element={<UserPage />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
     </Router>
   );

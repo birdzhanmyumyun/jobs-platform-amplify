@@ -2,261 +2,351 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
+    createUser(input: $input, condition: $condition) {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
+      educations {
+        items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
+          id
+          createdAt
+          updatedAt
+          userEducationsId
+        }
+        nextToken
+      }
+      id
       createdAt
       updatedAt
     }
   }
 `;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    updateBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
+    updateUser(input: $input, condition: $condition) {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
+      educations {
+        items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
+          id
+          createdAt
+          updatedAt
+          userEducationsId
+        }
+        nextToken
+      }
+      id
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    deleteBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
+    deleteUser(input: $input, condition: $condition) {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
+      educations {
         items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
           id
-          content
           createdAt
           updatedAt
-          postCommentsId
+          userEducationsId
         }
         nextToken
       }
+      id
       createdAt
       updatedAt
-      blogPostsId
     }
   }
 `;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
+export const createWorkExperience = /* GraphQL */ `
+  mutation CreateWorkExperience(
+    $input: CreateWorkExperienceInput!
+    $condition: ModelWorkExperienceConditionInput
   ) {
-    updatePost(input: $input, condition: $condition) {
-      id
+    createWorkExperience(input: $input, condition: $condition) {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
       title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      blogPostsId
+      userWorkExperiencesId
     }
   }
 `;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
+export const updateWorkExperience = /* GraphQL */ `
+  mutation UpdateWorkExperience(
+    $input: UpdateWorkExperienceInput!
+    $condition: ModelWorkExperienceConditionInput
   ) {
-    deletePost(input: $input, condition: $condition) {
-      id
+    updateWorkExperience(input: $input, condition: $condition) {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
       title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      blogPostsId
+      userWorkExperiencesId
     }
   }
 `;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
+export const deleteWorkExperience = /* GraphQL */ `
+  mutation DeleteWorkExperience(
+    $input: DeleteWorkExperienceInput!
+    $condition: ModelWorkExperienceConditionInput
   ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+    deleteWorkExperience(input: $input, condition: $condition) {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      title
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userWorkExperiencesId
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const createEducation = /* GraphQL */ `
+  mutation CreateEducation(
+    $input: CreateEducationInput!
+    $condition: ModelEducationConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+    createEducation(input: $input, condition: $condition) {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      startDate
+      endDate
+      institution
+      degree
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userEducationsId
     }
   }
 `;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
+export const updateEducation = /* GraphQL */ `
+  mutation UpdateEducation(
+    $input: UpdateEducationInput!
+    $condition: ModelEducationConditionInput
   ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+    updateEducation(input: $input, condition: $condition) {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      startDate
+      endDate
+      institution
+      degree
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userEducationsId
+    }
+  }
+`;
+export const deleteEducation = /* GraphQL */ `
+  mutation DeleteEducation(
+    $input: DeleteEducationInput!
+    $condition: ModelEducationConditionInput
+  ) {
+    deleteEducation(input: $input, condition: $condition) {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
+      startDate
+      endDate
+      institution
+      degree
+      id
+      createdAt
+      updatedAt
+      userEducationsId
     }
   }
 `;

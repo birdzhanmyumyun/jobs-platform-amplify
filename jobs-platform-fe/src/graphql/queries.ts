@@ -2,39 +2,69 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
-      id
-      name
-      posts {
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
+      educations {
+        items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
+          id
+          createdAt
+          updatedAt
+          userEducationsId
+        }
+        nextToken
+      }
+      id
       createdAt
       updatedAt
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
-        name
-        posts {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
       }
@@ -42,110 +72,129 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
-      id
+export const getWorkExperience = /* GraphQL */ `
+  query GetWorkExperience($id: ID!) {
+    getWorkExperience(id: $id) {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
       title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      blogPostsId
+      userWorkExperiencesId
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listWorkExperiences = /* GraphQL */ `
+  query ListWorkExperiences(
+    $filter: ModelWorkExperienceFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listWorkExperiences(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
-        title
-        blog {
+        experienceId
+        userId
+        user {
+          userId
+          firstName
+          lastName
+          company
           id
-          name
           createdAt
           updatedAt
         }
-        comments {
-          nextToken
-        }
+        title
+        startDate
+        endDate
+        employer
+        description
+        id
         createdAt
         updatedAt
-        blogPostsId
+        userWorkExperiencesId
       }
       nextToken
     }
   }
 `;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+export const getEducation = /* GraphQL */ `
+  query GetEducation($id: ID!) {
+    getEducation(id: $id) {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      startDate
+      endDate
+      institution
+      degree
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userEducationsId
     }
   }
 `;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
+export const listEducations = /* GraphQL */ `
+  query ListEducations(
+    $filter: ModelEducationFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listEducations(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
-        post {
+        educationId
+        userId
+        user {
+          userId
+          firstName
+          lastName
+          company
           id
-          title
           createdAt
           updatedAt
-          blogPostsId
         }
-        content
+        startDate
+        endDate
+        institution
+        degree
+        id
         createdAt
         updatedAt
-        postCommentsId
+        userEducationsId
       }
       nextToken
     }

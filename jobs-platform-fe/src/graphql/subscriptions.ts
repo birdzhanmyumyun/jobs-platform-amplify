@@ -2,234 +2,324 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
-      id
-      name
-      posts {
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser {
+    onCreateUser {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
+      educations {
+        items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
+          id
+          createdAt
+          updatedAt
+          userEducationsId
+        }
+        nextToken
+      }
+      id
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
-      id
-      name
-      posts {
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser {
+    onUpdateUser {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
+      educations {
+        items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
+          id
+          createdAt
+          updatedAt
+          userEducationsId
+        }
+        nextToken
+      }
+      id
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
-      id
-      name
-      posts {
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser {
+    onDeleteUser {
+      userId
+      firstName
+      lastName
+      company
+      workExperiences {
         items {
-          id
+          experienceId
+          userId
           title
+          startDate
+          endDate
+          employer
+          description
+          id
           createdAt
           updatedAt
-          blogPostsId
+          userWorkExperiencesId
         }
         nextToken
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
-      id
-      title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
+      educations {
         items {
+          educationId
+          userId
+          startDate
+          endDate
+          institution
+          degree
           id
-          content
           createdAt
           updatedAt
-          postCommentsId
+          userEducationsId
         }
         nextToken
       }
+      id
       createdAt
       updatedAt
-      blogPostsId
     }
   }
 `;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
-      id
+export const onCreateWorkExperience = /* GraphQL */ `
+  subscription OnCreateWorkExperience {
+    onCreateWorkExperience {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
       title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      blogPostsId
+      userWorkExperiencesId
     }
   }
 `;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
-      id
+export const onUpdateWorkExperience = /* GraphQL */ `
+  subscription OnUpdateWorkExperience {
+    onUpdateWorkExperience {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
       title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      blogPostsId
+      userWorkExperiencesId
     }
   }
 `;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+export const onDeleteWorkExperience = /* GraphQL */ `
+  subscription OnDeleteWorkExperience {
+    onDeleteWorkExperience {
+      experienceId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      title
+      startDate
+      endDate
+      employer
+      description
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userWorkExperiencesId
     }
   }
 `;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+export const onCreateEducation = /* GraphQL */ `
+  subscription OnCreateEducation {
+    onCreateEducation {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      startDate
+      endDate
+      institution
+      degree
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userEducationsId
     }
   }
 `;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
+export const onUpdateEducation = /* GraphQL */ `
+  subscription OnUpdateEducation {
+    onUpdateEducation {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
           nextToken
         }
+        educations {
+          nextToken
+        }
+        id
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      startDate
+      endDate
+      institution
+      degree
+      id
       createdAt
       updatedAt
-      postCommentsId
+      userEducationsId
+    }
+  }
+`;
+export const onDeleteEducation = /* GraphQL */ `
+  subscription OnDeleteEducation {
+    onDeleteEducation {
+      educationId
+      userId
+      user {
+        userId
+        firstName
+        lastName
+        company
+        workExperiences {
+          nextToken
+        }
+        educations {
+          nextToken
+        }
+        id
+        createdAt
+        updatedAt
+      }
+      startDate
+      endDate
+      institution
+      degree
+      id
+      createdAt
+      updatedAt
+      userEducationsId
     }
   }
 `;
